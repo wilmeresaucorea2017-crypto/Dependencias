@@ -19,7 +19,7 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
-public class JsonPeliculaDao {
+public class JsonPeliculaDao  implements PeliculaDao {
     private final File file;
     private final Gson gson;
     private List<Pelicula> store = new ArrayList<>();

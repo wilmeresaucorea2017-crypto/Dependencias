@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class JsonSocioDao {
+public class JsonSocioDao implements SocioDao {
     private final File file;
     private final Gson gson;
     private List<Socio> store = new ArrayList<>();

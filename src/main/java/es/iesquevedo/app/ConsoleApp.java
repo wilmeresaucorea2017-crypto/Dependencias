@@ -1,7 +1,7 @@
 package es.iesquevedo.app;
 
-import es.iesquevedo.dao.JsonPeliculaDao;
-import es.iesquevedo.dao.JsonSocioDao;
+import es.iesquevedo.dao.PeliculaDao;
+import es.iesquevedo.dao.SocioDao;
 import es.iesquevedo.modelo.Alquiler;
 import es.iesquevedo.modelo.Pelicula;
 import es.iesquevedo.modelo.Socio;
@@ -13,16 +13,14 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class ConsoleApp {
-    private final JsonPeliculaDao peliculaDao;
-    private final JsonSocioDao socioDao;
+    private final PeliculaDao peliculaDao;
+    private final SocioDao socioDao;
     private final AlquilerService service;
 
-    // los DAOs/servicio se crean internamente
-    public ConsoleApp() {
-        String base = System.getProperty("user.dir");
-        this.peliculaDao = new JsonPeliculaDao(base + "/peliculas.json");
-        this.socioDao = new JsonSocioDao(base + "/socios.json");
-        this.service = new AlquilerService();
+    public ConsoleApp(PeliculaDao peliculaDao, SocioDao socioDao, AlquilerService service) {
+        this.peliculaDao = peliculaDao;
+        this.socioDao = socioDao;
+        this.service = service;
     }
 
     public void crearPelicula(Scanner scanner) {
